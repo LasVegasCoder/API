@@ -30,7 +30,16 @@
 			
 			print_r( $result );
 		
+		Added encrypt options, this way you can encrypt your data from your app before sending it to server side process.
+		For example: User filled a form from your app or webpage, for a strong security,
+		we can now encrypt the whole form data, or part thereof before sending it to our server for processing.
 		
+		Server received the data, and use our known secret to decrypt it, then process it fast.  
+		Server side can also encrypt the data and send it down to your app or webpage, of course the app will decrypt the data
+		process it and displays it to users.
+		
+		This is a form of additional security to ensure that data is totally encrypted, sent over tcp either using ssl for additional 
+		security and to ensure the integrity of the data passed.
 	*/
 
 	
