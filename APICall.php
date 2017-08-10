@@ -40,6 +40,34 @@
 		
 		This is a form of additional security to ensure that data is totally encrypted, sent over tcp either using ssl for additional 
 		security and to ensure the integrity of the data passed.
+		
+		For example:
+		$DataToEncrypt = array(
+			'username' => $username,
+			'password' => $password,
+			'email' => $email,
+			'payment' => array(
+				'paymentid' => $paymentID,
+				'creditcard' => $creditcard,
+				'expiredate' => $expire,
+				'billing' => $billing
+			),
+			'status' => $status
+		);
+		
+		$EncryptedDATA = EncryptIt( $DataToEncrypt, null, 'myGreatSecreteKey' );
+		print_r($DataToEncrypt);
+		
+		Now you can send $EncryptedDATA to Server and use 'myGreatSecreteKey' to Decrypt it from the server before processing.
+		
+		So on your server:
+		  $incomingData = $_REQUEST['form_data'];
+		  
+		  $Decrypted = DecryptIt( $incomingData, null, 'myGreatSecreteKey' );
+		  print_r(  $Decrypted );
+		  
+	This is very useful when you are concerned about network sniffing, hacking, etc.  Even if attacker get your encrypted data, 
+	it is completely useless unless he/she know your secret key to the data.
 	*/
 
 	
