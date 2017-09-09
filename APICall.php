@@ -82,8 +82,8 @@
 			private $_method;
 			
 			private $_ENC_METHOD 	= "AES-256-CBC";
-			private $_ENC_KEY 		= "MySecretKey12345";
-			private $_ENC_IV		= "mySecretemySecre";
+			private $_ENC_KEY 	= "MySecretKey12345";
+			private $_ENC_IV	= "mySecretemySecre";
 			
 			//Begins
 			
