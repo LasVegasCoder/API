@@ -56,7 +56,7 @@
 		);
 		
 		$EncryptedDATA = EncryptIt( $DataToEncrypt, null, 'myGreatSecreteKey' );
-		print_r($DataToEncrypt);
+		print_r($EncryptedDATA);
 		
 		Now you can send $EncryptedDATA to Server and use 'myGreatSecreteKey' to Decrypt it from the server before processing.
 		
