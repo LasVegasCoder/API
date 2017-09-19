@@ -111,7 +111,7 @@
 				{
 					$this->_error = array(
 						'code' => 1 ,
-						'errorMessage' => 'Uh oh, you must supply an endpoint to connect to!');
+						'errorMessage' => "Uh oh, I don't have telepathy to know your endpoint!");
 						
 					return $this->_error;
 				}
