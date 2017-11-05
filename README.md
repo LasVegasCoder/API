@@ -60,8 +60,10 @@ browser etc before sending it to server side process.
 		b.) Encrypted Form data is sent to your server over non-encrypted or encryped connection.
 		c.) Server received and decrypt the encrypted FormData, then process it.
 		
-With SSL/Ciphers exploits, I decided to do `private` encryption of `Sensitive DATA` so if any hacker get any sniffed DATA 
-over network or internet due to vulunerability, the stolen data will be useless for them, unless they can get the `key to decrypt` that `stolen DATA` (Which is only known and randomly changed, updated on auto).
+With SSL/Ciphers exploits, I decided to do `private` encryption of `Sensitive DATA` 
+if any hacker get any sniffed DATA over network or internet due to vulunerability, 
+the stolen data will be useless for them, unless they can get the `key to decrypt` that `stolen DATA` 
+(Which is only known and randomly changed, updated on auto from the server).
 		
 Let me demonstrate how to send encrypt sensitive data and send it wire. 
 
@@ -89,7 +91,8 @@ Let me demonstrate how to send encrypt sensitive data and send it wire.
       print_r($EncryptedDATA);
 		
 
-	Now you can send $EncryptedDATA to Server and use 'myGreatSecreteKey' to Decrypt it from the server before processing.
+	Now you can send $EncryptedDATA to Server and use 'myGreatSecreteKey' to Decrypt it 
+	from the server before processing.
 		
 		So on your server:
 		//receive incoming data;
@@ -101,5 +104,6 @@ Let me demonstrate how to send encrypt sensitive data and send it wire.
 		//Process the decrypted data;
 		print_r(  $Decrypted );
 		  
-	This is very useful when you are concerned about network sniffing, hacking, etc.  Even if attacker get your encrypted data, 
+	This is very useful when you are concerned about network sniffing, hacking, etc.  
+	Even if attacker get your encrypted data, 
 	it is completely useless unless he/she know your secret key to the data.
