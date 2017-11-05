@@ -1,4 +1,6 @@
-PrinceAPICaller is a private PHP Class written for the simplicity of calling different API, support various methods: POST|GET|, (PUT|DEL|) are optional.
+PrinceAPICaller is a private PHP Class written for the simplicity of calling different API, 
+	`Support various methods: 
+	POST|GET|, (PUT|DEL|) are optional.`
 
 You can also encrypt your data before sending it across the protected or non protected connection.
 
@@ -47,7 +49,8 @@ eg. To Call google with GET method, just pass 'GET' into the constructor like th
 	//Print result
         print_r( $result );
 		
-		Added encrypt options, this way you can encrypt your client data from your app, browser etc before sending it to server 		side process.
+Added encrypt options, this way you can encrypt your client data from your app, 
+browser etc before sending it to server side process.
 		
 		For example: User sending a form from your app or webpage, for a strong security,
 		
@@ -55,7 +58,9 @@ eg. To Call google with GET method, just pass 'GET' into the constructor like th
 		b.) Encrypted Form data is send to your server over non-encrypted or encryped connection.
 		c.) Server received and decrypt the encrypted FormData, then process it.
 		
-With SSL/Ciphers exploits, I decided to do native encryption so if any hacker get the sniffed DATA it will be useless for them unless they can get the key to decrypt that DATA (Which is only known and randomly changed, updated on auto).
+With SSL/Ciphers exploits, I decided to do native encryption so if any hacker get the sniffed DATA 
+it will be useless for them unless they can get the key to decrypt that DATA 
+(Which is only known and randomly changed, updated on auto).
 		
 Let me demonstrate sending a sensitive data, encrypt it before sending it over the wire.
 	
