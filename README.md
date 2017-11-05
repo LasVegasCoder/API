@@ -1,7 +1,7 @@
 PrinceAPICaller is a private PHP Class written for the simplicity of calling different API
 
-	`Support various methods: 
-	POST|GET|, (PUT|DEL|) are optional.`
+	Support various methods: 
+	POST|GET|, (PUT|DEL|) are optional.
 
 You can also encrypt your data before sending it across the protected or non protected connection.
 
@@ -104,6 +104,6 @@ Let me demonstrate how to send encrypt sensitive data and send it wire.
 		//Process the decrypted data;
 		print_r(  $Decrypted );
 		  
-	This is very useful when you are concerned about network sniffing, hacking, etc.  
-	Even if attacker get your encrypted data, 
-	it is completely useless unless he/she know your secret key to the data.
+This is very useful when you are concerned about network sniffing, hacking, etc.  
+Even if attacker get your encrypted data, 
+it is completely useless unless he/she know your secret key to the data.
