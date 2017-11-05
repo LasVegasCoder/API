@@ -11,8 +11,9 @@ Let me demonstrate the usage:
 			Assuming you want to call Amazon;
 			create index.php or include this class where you wanted to use it;
 		
-Step #1 Downoad this class
-	
+Step #1 Downoad this class:
+
+	wget https://github.com/LasVegasCoder/API/blob/master/APICall.php
 	Include it in your application, for example create emplty test.php
 	<?php
 	//Include the class
