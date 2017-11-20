@@ -29,7 +29,7 @@
 			
 			print_r( $result );
 			
-		SSL cannot protect user's DATA intercepted on local network.
+		SSL cannot protect user's DATA that's intercepted on local network such as free Wifi
 		
 		I added encryption options, this way you can encrypt your data from your app before sending it to your server for process.
 		
