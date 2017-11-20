@@ -108,7 +108,7 @@
 			
 			private $_ENC_METHOD 	= "AES-256-CBC";
 			private $_ENC_KEY 	= "MySecretKey12345";
-			private $_ENC_IV	= "mySecretemySecre";
+			private $_ENC_IV	= "mySecretemySecret";
 			
 			//Begins
 			
@@ -120,7 +120,7 @@
 					
 				$this->_ch = null;
 				$this->_result = '';	
-				$this->_cookieFile = 'supCookies.txt';
+				$this->_cookieFile = '/tmp/apiCallerCookies.txt';
 				
 				$this->_method  = ( isset( $reqType ) && !empty( $reqType ) ) ? strtolower( $reqType ) : 'post' ;
 			}
@@ -151,7 +151,7 @@
 					return $this->_error;
 				}
 				
-				$this->_ch = curl_init();
+				$this->_ch = ( $this->_ch == null ) ? curl_init() : $this->_ch;
 				
 				if( $this->_method == 'post' )
 				{
@@ -175,8 +175,8 @@
 					
 						return $this->_result;
 					
-				} else
-				
+				} 
+				else
 				if( $this->_method == 'get' )
 				{
 					curl_setopt( $this->_ch, CURLOPT_URL, $endpoint );
