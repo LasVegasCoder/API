@@ -2,7 +2,7 @@
 
 	/*
 		Name:		Simple API Caller 
-		Desc:		API Caller Utility allows to make call to any api
+		Desc:		API Caller Utility allows your application to make call to any api and return result.
 		Version:	V1.0
 		Date:		3/11/2017
 		Author:		Prince Adeyemi
@@ -11,35 +11,56 @@
 		
 		Usage:
 		Assuming you want to call Amazon;
-		create index.php or include this class where you wanted to use it;
 		
-		$prince = new PrinceAPICaller();  
-		$result = $prince->_sendRequest('http://amazon.com/whatever/path/api/or/webpage');
+		$api = new PrinceAPICaller();  
+		$result = $api->_sendRequest('http://domain.com/path/to/endpoint');
 		
 		print_r( $result );
 		
-		Or use this to pass data to another resources.
+		To pass DATA to your endpoint.
 		
 			$data = array( 'username' => 'MyUsername', 'password' => 'Mypassword' );
 		
-			$prince->_sendRequest('http://amazon.com/whatever/path/api/or/webpage', $data );
+			$api->_sendRequest('http://amazon.com/whatever/path/api/or/webpage', $data );
 			
-		To use get method, just pass 'GET' into it.
-			$prince = new PrinceAPICaller('GET');
-			$result = $prince->_sendRequest('http//google.com');
+		To use a GET method, specify 'GET' e.g.
+			$api = new PrinceAPICaller('GET');
+			$result = $prince->_sendRequest('http://google.com');
 			
 			print_r( $result );
+			
+		SSL cannot protect user's DATA intercepted on local network.
 		
-		Added encrypt options, this way you can encrypt your data from your app before sending it to server side process.
-		For example: User filled a form from your app or webpage, for a strong security,
-		we can now encrypt the whole form data, or part thereof before sending it to our server for processing.
+		I added encryption options, this way you can encrypt your data from your app before sending it to your server for process.
 		
-		Server received the data, and use our known secret to decrypt it, then process it fast.  
+		For example: When user submit a form from your app or webpage, for a stronger security,
+		we can now encrypt the whole form data, or part of the submitted DATA before sending it to our server for processing.
+		
+		e.g: Your user submits data such as: First, Last, Credit Card Information, D.O.B, and other vital information from your website or app.
+		Such information is susceptible to sniffers on the same network, i.e a hacker sitting at a Starbucks may sniffing network may sniff 
+		any DATA submitted by any client that's connected to the same Starbucks network.
+		
+		ATTACKER     ---------------------------  ROUTER/WiFi ----------------------------- USERS
+		Attacker is connected to a network such as free wifi (Starbucks for example), attacker lauches sniffers, or ARP Poison attack
+		which forwards users data to attacker before the attacker reroute such data to the real ROUTER after with copy of data dumped on his local device
+		for later reviewing.
+		
+		As you can see, SSL cannot protect user's DATA intercepted on local network.
+		
+		To mitigate this type of attack, I prefer to encrypt user's DATA before leaving the webpage, or application. i.e before it get
+		sent over the network; therefore FIRSTNAME will look like $Zmlyc3RuYW1l221.2c3RuYW1l if ever sniffed. As you can see that this data is 
+		useless to the attacker if sniffed over the network because the attacker MUST know the password to decrypt it.
+		
+		Server side:
+		Server received the encrypted DATA save it to database or use our known secret to decrypt it, then process it fast and display 
+		the decypted data to user:
+		
+		SERVER RECEIVED $Zmlyc3RuYW1l221.2c3RuYW1l ------SAVE|DECRYPT it to FIRSTNAME and process.
+		
 		Server side can also encrypt the data and send it down to your app or webpage, of course the app will decrypt the data
 		process it and displays it to users.
 		
-		This is a form of additional security to ensure that data is totally encrypted, sent over tcp either using ssl for additional 
-		security and to ensure the integrity of the data passed.
+		This is an added security to ensure that your user's data is totally encrypted, before sent over tcp either using ssl or not.
 		
 		For example:
 		$DataToEncrypt = array(
@@ -56,18 +77,22 @@
 		);
 		
 		$EncryptedDATA = EncryptIt( $DataToEncrypt, null, 'myGreatSecreteKey' );
-		print_r($EncryptedDATA);
+		print_r($EncryptedDATA); 
+		OUTPUT: $c3Nkam5ka3dlZm9wZmtvcGYgd2Yga2ZsYyBhIGNsa2FldiBtIHZha2xhdmF2dmE=
 		
-		Now you can send $EncryptedDATA to Server and use 'myGreatSecreteKey' to Decrypt it from the server before processing.
+		Now you can send $EncryptedDATA to your app/web server and use 'myGreatSecreteKey' to Decrypt it from the server before processing.
 		
 		So on your server:
+		//Receive form submission
 		  $incomingData = $_REQUEST['form_data'];
 		  
+		// Decrypt form submission if neccessary or save it to database  
 		  $Decrypted = DecryptIt( $incomingData, null, 'myGreatSecreteKey' );
 		  print_r(  $Decrypted );
+		  OUTPUT: Real Data.
 		  
 	This is very useful when you are concerned about network sniffing, hacking, etc.  Even if attacker get your encrypted data, 
-	it is completely useless unless he/she know your secret key to the data.
+	it is completely useless unless he/she know your 'secret key' to decrypt the encrypted data.
 	*/
 
 	
