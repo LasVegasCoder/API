@@ -20,11 +20,11 @@ Step #1 Downoad this class:
 	//Include the class
 	include_once("APICall.php");
 	
-	//Instantial the class
-	$prince = new PrinceAPICaller();  
+	//Instantial the class for new app with the name $my_app
+	$my_app = new PrinceAPICaller();  
 	
 	//Call the Endpoint API
-      	$result = $prince->_sendRequest('http://amazon.com/whatever/path/api/or/webpage');
+      	$result = $my_app->_sendRequest('http://amazon.com/whatever/path/api/or/webpage');
 	
 	//Print results.
       	print_r( $result );
@@ -37,16 +37,16 @@ Or use this to pass `data` or `parameters` to another resources.
         $data = array( 'username' => 'MyUsername', 'password' => 'Mypassword' );
 	
 	//Send request to endpoint
-        $prince->_sendRequest('http://amazon.com/whatever/path/api/or/webpage', $data );
+        $my_app->_sendRequest('http://amazon.com/whatever/path/api/or/webpage', $data );
 			
 To use get other method other than 'POST', just pass the METHOD into the Constructor
 eg. To Call google with GET method, just pass 'GET' into the constructor like this:
 	
 	//Instantiate the Class with GET Method
-        $prince = new PrinceAPICaller('GET');
+        $my_app = new PrinceAPICaller('GET');
 	
 	// Send request to the endpoint
-        $result = $prince->_sendRequest('http//google.com');
+        $result = $my_app->_sendRequest('http//google.com');
 	
 	//Print result
         print_r( $result );
