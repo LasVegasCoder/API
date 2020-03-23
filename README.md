@@ -1,3 +1,6 @@
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/94efe4cd8f0a476196f38594459cfd57)](https://app.codacy.com/manual/LasVegasCoder/API?utm_source=github.com&utm_medium=referral&utm_content=LasVegasCoder/API&utm_campaign=Badge_Grade_Dashboard)
+
 PrinceAPICaller is a private PHP Class written for the simplicity of calling different API
 
 	Support various methods: 
